@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <div
+      class="main"
+      style="
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        class="container"
+        style="
+          background-color: rgb(52, 184, 70);
+          @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa&family=Poppins:ital,wght@0,100;0,200;0,300;1,300&display=swap');
+          font-family: 'Poppins', sans-serif;
+          line-height: rem;
+          font-size: 0.7rem;
+          width: 400px;
+          height: 800px;
+          text-align: center;
+          padding-right: 20px;
+        "
+      >
+        <div class="svu">
+          <img src="public\planetwise.jpg" alt="" />
+        </div>
+        <h2>HII</h2>
+        <div class="for-whole for-data">
+          <ul>
+            <li>Hey👋 !</li>
+
+            <li style="list-style: none">
+              👉 My Name is
+              <h4 class="for-hightlighting-fetcheddata"><%= tree.treeName%></h4>
+            </li>
+
+            <li style="list-style: none">
+              👉 I will also be called as
+              <h4 class="for-hightlighting-fetcheddata">
+                <%= tree.scientificName %>
+              </h4>
+              scientifically
+            </li>
+
+            <li style="list-style: none">
+              👉 My Height is
+              <h4 class="for-hightlighting-fetcheddata">
+                <%= tree.height %>meters
+              </h4>
+              I am <%= tree.diameter %>meters Round.
+            </li>
+
+            <li style="list-style: none">
+              👉 I am located at GPS location of
+              <h4 class="for-hightlighting-fetcheddata">
+                <%= tree.lattitude %> (Lattitude)
+              </h4>
+              and
+              <h4 className="for-hightlighting-fetcheddata">
+                <%= tree.longitude %>(Longitude)
+              </h4>
+            </li>
+
+            <li style="list-style: none">
+              👉 I have absorbed
+              <h4 class="for-hightlighting-fetcheddata">
+                <%= tree.co2Absorbed%>
+              </h4>
+              tons of carbon till today will absorb
+              <h4 class="for-hightlighting-fetcheddata">
+                <%= tree.averageco2Absorbed %>
+              </h4>
+              tons of average carbon every year
+            </li>
+
+            <li style="list-style: none">
+              👉 My carbon absorption capacity will increase as I grow!
+            </li>
+
+            <li style="list-style: none"><%- tree.benefits %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
