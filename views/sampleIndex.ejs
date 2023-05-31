@@ -101,21 +101,25 @@
           class="logos"
           style="display: flex; gap: 200px; padding-left: 20px"
         >
+
           <div class="planet">
+            <a href = "https://planetwise.io/" target="_blank">
             <img
               src="/public/images/planetwise.png"
               alt="Planet Wise"
               style="height: 50px; width: 100px"
             />
+        </a>
           </div>
-
           <div class="svu">
+            <a href = "https://svuniversity.edu.in" target="_blank">
             <img
               src="/public/images/svulogo.png"
               alt="Planet Wise"
               style="height: 50px; width: 50px"
             />
           </div>
+        </a>
         </div>
         <br />
         <div
@@ -144,6 +148,28 @@
                       <%= tree.scientificName %>
                     </h4>
                   </span>
+                </p>
+              </div>
+              <div class="tree-char">
+                <p>
+                  I have absorbed
+                  <b class="for-hightlighting-fetcheddata"
+                    ><%= tree.co2Absorbed%> tons of carbon till today 😎😎</b
+                  >
+                  and will absorb
+                  <i
+                    ><b class="for-hightlighting-fetcheddata"
+                      ><%= tree.averageco2Absorbed %> tons of average carbon
+                      every year 🥳🥳</b
+                    ></i
+                  >
+                </p>
+              </div>
+              <div class="tree-char">
+                <p>
+                  <strong>
+                    My carbon absorption capacity will increase as I grow! 🔥🔥
+                  </strong>
                 </p>
               </div>
               <div class="tree-char">
@@ -177,28 +203,7 @@
                 </p>
               </div>
 
-              <div class="tree-char">
-                <p>
-                  I have absorbed
-                  <b class="for-hightlighting-fetcheddata"
-                    ><%= tree.co2Absorbed%> tons of carbon till today 😎😎</b
-                  >
-                  and will absorb
-                  <i
-                    ><b class="for-hightlighting-fetcheddata"
-                      ><%= tree.averageco2Absorbed %> tons of average carbon
-                      every year 🥳🥳</b
-                    ></i
-                  >
-                </p>
-              </div>
-              <div class="tree-char">
-                <p>
-                  <strong>
-                    My carbon absorption capacity will increase as I grow! 🔥🔥
-                  </strong>
-                </p>
-              </div>
+              
               <div class="tree-char">
                 <h3>😍 I Help You In 👇 These Ways</h3>
                 <p><%- tree.benefits %></p>
