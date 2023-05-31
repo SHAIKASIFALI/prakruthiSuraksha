@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      .for-whole {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        background: white;
+        border-radius: 40px;
+        height: 600px;
+        overflow: hidden;
+      }
+
+      .tree-data {
+        overflow-y: scroll;
+        height: 100%;
+        scrollbar-width: thin;
+        scrollbar-color: white white;
+        padding: 20px;
+      }
+      .tree-data::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .tree-data::-webkit-scrollbar-track {
+        background-color: white;
+      }
+
+      .tree-data::-webkit-scrollbar-thumb {
+        background-color: rgb(143, 208, 143);
+        border-radius: 5px;
+      }
+
+      .tree-detail-data {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .tree-detail-data p {
+        margin-bottom: 5px;
+      }
+
+      .tree-detail-data h4 {
+        margin: 0;
+      }
+
+      .tree-char {
+        line-height: 1.5;
+        width: 300px;
+        border-radius: 6px;
+        padding: 10px;
+        border: 2px solid greenyellow;
+      }
+      .vote-of-thanks {
+        line-height: 1.5;
+        width: 300px;
+        border-radius: 6px;
+        padding: 10px;
+      }
+      body {
+        position: relative;
+        top: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="main"
+      style="
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        class="container"
+        style="
+          background-color: #e2ffcc;
+          font-family: 'Poppins', sans-serif;
+          line-height: 1rem;
+          font-size: 1rem;
+          width: 400px;
+          height: 700px;
+        "
+      >
+        <br />
+
+        <div
+          class="logos"
+          style="display: flex; gap: 200px; padding-left: 20px"
+        >
+          <div class="planet">
+            <img
+              src="/public/images/planetwise.png"
+              alt="Planet Wise"
+              style="height: 50px; width: 100px"
+            />
+          </div>
+
+          <div class="svu">
+            <img
+              src="/public/images/svulogo.png"
+              alt="Planet Wise"
+              style="height: 50px; width: 50px"
+            />
+          </div>
+        </div>
+        <br />
+        <div
+          class="for-whole for-data"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
+          <div class="tree-data">
+            <h2>Hello!!👋👋!</h2>
+            <br />
+            <div class="tree-detail-data">
+              <div class="tree-char">
+                <p>
+                  My Name is
+                  <strong class="for-hightlighting-fetcheddata"
+                    ><%= tree.treeName%> 🌳🌳</strong
+                  >
+                </p>
+              </div>
+              <div class="tree-char">
+                <p>
+                  I am scientifically 🔬 called as
+                  <span>
+                    <h4 class="for-hightlighting-fetcheddata">
+                      <%= tree.scientificName %>
+                    </h4>
+                  </span>
+                </p>
+              </div>
+              <div class="tree-char">
+                <p>
+                  My Height is
+                  <strong class="for-hightlighting-fetcheddata">
+                    <%= tree.height %> meters 📏📏</strong
+                  >
+                </p>
+              </div>
+
+              <div class="tree-char">
+                <p>
+                  I am
+                  <strong class="for-hightlighting-fetcheddata">
+                    <%= tree.diameter %> meters</strong
+                  >
+                  😉😉 round in Diameter.
+                </p>
+              </div>
+              <div class="tree-char">
+                <p>
+                  I am located at 🗺️GPS location of
+                  <strong class="for-hightlighting-fetcheddata">
+                    <%= tree.lattitude %> (Latitude)</strong
+                  >
+                  and
+                  <strong className="for-hightlighting-fetcheddata">
+                    <%= tree.longitude %> (Longitude)</strong
+                  >
+                </p>
+              </div>
+
+              <div class="tree-char">
+                <p>
+                  I have absorbed
+                  <b class="for-hightlighting-fetcheddata"
+                    ><%= tree.co2Absorbed%> tons of carbon till today 😎😎</b
+                  >
+                  and will absorb
+                  <i
+                    ><b class="for-hightlighting-fetcheddata"
+                      ><%= tree.averageco2Absorbed %> tons of average carbon
+                      every year 🥳🥳</b
+                    ></i
+                  >
+                </p>
+              </div>
+              <div class="tree-char">
+                <p>
+                  <strong>
+                    My carbon absorption capacity will increase as I grow! 🔥🔥
+                  </strong>
+                </p>
+              </div>
+              <div class="tree-char">
+                <h3>😍 I Help You In 👇 These Ways</h3>
+                <p><%- tree.benefits %></p>
+              </div>
+
+              <div class="vote-of-thanks">
+                <strong> Hey , Thank You 🫡💖 for visiting mee</strong><br />
+                <strong> see you ..🥹, Byee..😊😊</strong><br />
+                <strong><i>Plant Tree 🌴🌴 Save Environment 😇</i></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Get the .tree-data container element
+      const treeDataContainer = document.querySelector(".tree-data");
+
+      // Function to handle scroll event
+      function handleScroll() {
+        const scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        const containerOffsetTop = treeDataContainer.offsetTop;
+
+        if (scrollTop >= containerOffsetTop) {
+          treeDataContainer.classList.add("show-data");
+        } else {
+          treeDataContainer.classList.remove("show-data");
+        }
+      }
+
+      // Add scroll event listener
+      window.addEventListener("scroll", handleScroll);
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

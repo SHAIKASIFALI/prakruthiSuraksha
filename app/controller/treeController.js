@@ -2,6 +2,7 @@ const { Tree } = require("../model");
 const xlsx = require("xlsx");
 const fs = require("fs");
 var nl2br = require("nl2br");
+const roundTo = require("round-to");
 const httpFileUpload = async (req, res) => {
   try {
     // Read the uploaded Excel file
@@ -34,8 +35,12 @@ const httpRenderTreeTemplate = async (req, res) => {
       sNo: treeNo,
     });
     const treeObject = tree.toObject();
+    treeObject.lattitude = roundTo(Number(tree.lattitude), 2);
+    treeObject.longitude = roundTo(Number(tree.longitude), 2);
+    treeObject.co2Absorbed = roundTo(Number(tree.co2Absorbed), 2);
+    treeObject.averageco2Absorbed = roundTo(Number(tree.averageco2Absorbed), 2);
     treeObject.benefits = nl2br(tree.benefits);
-    return res.render("index", { tree: treeObject });
+    return res.render("sampleIndex", { tree: treeObject });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
