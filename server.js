@@ -11,8 +11,14 @@ const axios = require("axios");
 var job = new CronJob(
   "5 * * * *",
   async function () {
-    console.log("cronjobran");
-    return await axios.get("https://prakruthisuraksha.onrender.com/api/tree/1");
+    try {
+      console.log("cronjobran");
+      return await axios.get(
+        "https://prakruthisuraksha.onrender.com/api/tree/1"
+      );
+    } catch (error) {
+      console.log(error);
+    }
   },
   null,
   false,
