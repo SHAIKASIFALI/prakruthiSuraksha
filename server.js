@@ -12,6 +12,7 @@ var job = new CronJob(
   "5 * * * *",
   async function () {
     return await axios.get("https://prakruthisuraksha.onrender.com/api/tree/1");
+    console.log("cronjobran");
   },
   null,
   false,
