@@ -1,11 +1,22 @@
 // creation of the server
+
 const express = require("express");
 const http = require("http");
 const app = require("./app/app");
 const { appConfig } = require("./app/config");
 const { mongoConnect, redisConnect } = require("./app/database");
 var path = require("path");
-
+var CronJob = require("cron").CronJob;
+const axios = require("axios");
+var job = new CronJob(
+  "5 * * * *",
+  async function () {
+    return await axios.get("https://prakruthisuraksha.onrender.com/api/tree/1");
+  },
+  null,
+  false,
+  "America/Los_Angeles"
+);
 const server = http.createServer(app);
 
 const PORT = appConfig.PORT;
@@ -21,6 +32,7 @@ const startServer = async () => {
   server.listen(PORT, () => {
     console.log(`server started listening at ${PORT} ....`);
   });
+  job.start();
 };
 
 startServer();
