@@ -6,7 +6,7 @@ const {
   httpFileUpload,
   httpRenderTreeTemplate,
 } = require("../../controller/treeController");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "tmp/" });
 
 treeRouter.post("/upload", upload.single("excelFile"), httpFileUpload);
 treeRouter.get("/:treeId", httpRenderTreeTemplate);
