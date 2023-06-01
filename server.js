@@ -14,7 +14,7 @@ var job = new CronJob(
     try {
       console.log("cronjobran");
       return await axios.get(
-        "https://prakruthisuraksha.onrender.com/api/tree/1"
+        "https://prakruthisuraksha.onrender.com/api/trees/1"
       );
     } catch (error) {
       console.log(error);
