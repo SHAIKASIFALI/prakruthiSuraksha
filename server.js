@@ -38,8 +38,8 @@ const startServer = async () => {
   await redisConnect(); // connect to the redis database..
   server.listen(PORT, () => {
     console.log(`server started listening at ${PORT} ....`);
+    job.start();
   });
-  job.start();
 };
 
 startServer();
